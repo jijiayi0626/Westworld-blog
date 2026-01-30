@@ -1,12 +1,9 @@
 name = "westworld-mc-blog"
 compatibility_date = "2023-10-01"
 compatibility_flags = ["nodejs_compat"]
-pages_build_output_dir = "dist"  # 补这个关键配置，解决无效提示
-
-[pages.kv_namespaces]
-blog_data = "你的CF KV命名空间ID" # 别删你的ID！
+pages_build_output_dir = "dist"
 
 [env.production]
 pages.kv_namespaces = [
-  { binding = "blog_data", id = "你的CF KV命名空间ID" }
+  { binding = "blog_data", id = "你的CF KV命名空间ID" } # 只保留你的KV ID
 ]

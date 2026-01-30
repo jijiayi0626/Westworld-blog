@@ -180,7 +180,7 @@ const handleMdUpload = (e) => {
   reader.readAsText(file, 'utf-8') // 强制UTF-8防乱码
   reader.onload = (event) => {
     let content = event.target.result
-    // 提取一级标题作为博客标题
+    // 提取一级标题作为博客标题，无标题则用文件名
     const titleMatch = content.match(/#\s+(.*?)\n/)
     const blogTitle = titleMatch ? titleMatch[1] : file.name.replace('.md', '')
     blogList.value.unshift({
@@ -216,6 +216,9 @@ const loadBlogsFromServer = async () => {
     const loadedBlogs = await Promise.all(blogPromises)
     // 按时间倒序，新博客在前
     blogList.value = loadedBlogs.sort((a, b) => new Date(b.time) - new Date(a.time))
+  } catch (err) {
+    console.log('加载服务器MD失败（本地开发正常）：', err)
+  }
 }
 
 // 4. 玩家留言（KV持久化+清空功能）
@@ -390,6 +393,16 @@ onMounted(() => {
   line-height: 1.5;
 }
 
+/* 服务器状态 */
+.status-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  line-height: 1.8;
+}
+.status-online { color: #28a745; font-weight: bold; }
+.error { color: #dc3545; }
 
 /* 博客模块 */
 .blog-search { margin-bottom: 12px; }
