@@ -1,0 +1,17 @@
+name = "westworld-mc-blog" # 必须和CF Pages项目名一致
+compatibility_date = "2024-08-01"
+compatibility_flags = ["nodejs_compat"] # 启用Node兼容，支持KV操作
+
+[pages]
+dir = "dist" # 与vite打包目录一致
+branch = "main" # 关联GitHub主分支
+
+# KV命名空间绑定（生产环境）
+[pages.kv_namespaces]
+blog_data = "你的CF KV命名空间ID" # 替换为自己的KV ID
+
+# 生产环境专属配置
+[env.production]
+pages.kv_namespaces = [
+  { binding = "blog_data", id = "你的CF KV命名空间ID" } # 与上方ID一致
+]

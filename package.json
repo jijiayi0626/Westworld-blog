@@ -1,0 +1,25 @@
+{
+  "name": "westworld-mc-blog",
+  "version": "1.0.0",
+  "description": "我的世界西域之光9.0服务器博客，CF Pages部署，支持MD上传+KV持久化+服务器状态查询",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "vite build && wrangler pages deploy dist"
+  },
+  "dependencies": {
+    "vue": "^3.4.21",
+    "marked": "^12.0.2",
+    "axios": "^1.6.8"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "vite": "^5.2.8",
+    "wrangler": "^3.57.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
