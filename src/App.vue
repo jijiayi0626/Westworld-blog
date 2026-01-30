@@ -216,12 +216,6 @@ const loadBlogsFromServer = async () => {
     const loadedBlogs = await Promise.all(blogPromises)
     // 按时间倒序，新博客在前
     blogList.value = loadedBlogs.sort((a, b) => new Date(b.time) - new Date(a.time))
-    // 检测是否有二维码
-    const qrRes = await fetch('/blogs/qrcode.jpg')
-    hasQrcode.value = qrRes.ok
-  } catch (err) {
-    console.log('加载服务器MD/二维码失败（本地开发正常）：', err)
-  }
 }
 
 // 4. 玩家留言（KV持久化+清空功能）
