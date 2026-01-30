@@ -34,13 +34,6 @@
       <p class="ip-tip">✅ Java版直接粘贴进服务器列表；基岩版手动填写地址+端口</p>
     </section>
 
-    <!-- 玩家群二维码（引流用） -->
-    <section class="qrcode-section">
-      <p class="qrcode-tip">扫码进群，获取福利&最新通知</p>
-      <img src="/blogs/qrcode.jpg" alt="玩家群二维码" class="qrcode-img" v-if="hasQrcode">
-      <p class="qrcode-placeholder" v-else>群二维码可放入 src/public/blogs 命名为 qrcode.jpg</p>
-    </section>
-
     <!-- 服务器实时状态 -->
     <section class="status-section">
       <h2 class="section-title">📊 服务器实时状态</h2>
@@ -115,7 +108,6 @@ const javaIp = 'westworld.9666.fun:16044'
 const bedrockIp = 'westworld.9666.fun'
 const bedrockPort = '16044'
 const notice = ref('服务器每日10点例行维护，时长30分钟，请勿跑图～') // 置顶公告
-const hasQrcode = ref(false) // 是否有群二维码
 
 // 1. 一键复制功能
 const copyToClipboard = (text) => {
@@ -404,29 +396,6 @@ onMounted(() => {
   line-height: 1.5;
 }
 
-/* 二维码模块 */
-.qrcode-section {
-  text-align: center;
-  margin: 20px 0;
-  padding: 15px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-.qrcode-tip { color: #666; margin-bottom: 10px; }
-.qrcode-img { width: 150px; border-radius: 8px; }
-.qrcode-placeholder { color: #999; font-size: 13px; }
-
-/* 服务器状态 */
-.status-card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  line-height: 1.8;
-}
-.status-online { color: #28a745; font-weight: bold; }
-.error { color: #dc3545; }
 
 /* 博客模块 */
 .blog-search { margin-bottom: 12px; }
